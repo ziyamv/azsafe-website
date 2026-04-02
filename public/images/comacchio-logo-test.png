@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="it">
+	<head>
+        <!-- Google tag (gtag.js) --> <script async src=https://www.googletagmanager.com/gtag/js?id=G-EVPL5ZL0VS></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-EVPL5ZL0VS'); </script>
+        
+		<title>COMACCHIO</title>
+		<meta property="og:type" content="article"/>
+		<meta property="og:title" content=""/>
+		<!-- twitter -->
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="" >
+		<meta name="twitter:description" content="">
+		<!-- twitter -->
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<meta http-equiv="content-language" content="it">
+		        <link rel="shortcut icon" type="image/ico" href="/images/favicon_new.ico"/>
+        <meta charset="utf-8">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta http-equiv="Content-Language" content="it">
+
+        <!-- Typekit Font -->
+        <script type="text/javascript" src="https://fast.fonts.net/jsapi/1a2336fc-757a-4e12-bf7d-75d9ee29fc74.js"></script>
+
+        <!-- Fontawesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Lightbox -->
+        <link rel="stylesheet" href="/css/venobox.css">
+
+        <!-- Carousel -->
+        <link href="/css/owl.carousel.css" rel="stylesheet">
+
+        <!-- Tooltips -->
+        <link href="/css/tooltips.css" rel="stylesheet">
+
+        <!-- Style -->
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/style_new.css">
+
+        <script id="Cookiebot" src=https://consent.cookiebot.com/uc.js data-cbid="b3258d32-d3c3-46b4-9e3d-467035c0926c" data-blockingmode="auto" type="text/javascript"></script>
+
+        <!-- <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-3390111-56', {'allowAnchor': true});
+          ga('send', 'pageview', { 'page': location.pathname + location.search + location.hash});
+
+        </script> -->
+
+</head>
+<body id="comacchio-pag-error_404">
+    <!-- PRELOADER -->
+    <div class="page-loader">
+        <div class="loader">Loading...</div>
+    </div>
+    <!-- /PRELOADER -->
+
+    <div class="overlay"></div>
+     <nav>
+    <ul class="list-unstyled main-menu">
+                <li class=""><a href="/it/azienda/">Azienda</a></li><li class=""><span>FONDAZIONI & CONSOLIDAMENTI</span><ul class="list-unstyled list-products"><li class=" sub-nav"><a href="/it/prodotti/fondazioni-and-consolidamenti/pali-di-grande-diametro/">PALI DI GRANDE DIAMETRO</a></li><li class=" sub-nav"><a href="/it/prodotti/fondazioni-and-consolidamenti/microperforazione/">MICROPERFORAZIONE</a></li></ul></li><li class=""><span>GEOTECNICA & ESPLORAZIONI</span><ul class="list-unstyled list-products"><li class=" sub-nav"><a href="/it/prodotti/geotecnica-and-esplorazioni/geotecnica/">GEOTECNICA</a></li><li class=" sub-nav"><a href="/it/prodotti/geotecnica-and-esplorazioni/esplorazioni-minerarie/">ESPLORAZIONI MINERARIE</a></li></ul></li><li class=""><span>POZZI ACQUA & GEOTERMIA</span><ul class="list-unstyled list-products"><li class=" sub-nav"><a href="/it/prodotti/pozzi-acqua-and-geotermia/macchine-multifunzione/">Macchine multifunzione</a></li><li class=" sub-nav"><a href="/it/prodotti/pozzi-acqua-and-geotermia/macchine-dedicate-per-pozzi/">Macchine dedicate per pozzi</a></li></ul></li><li class=""><a href="/it/usato/">Usato</a></li><li class=""><a href="/it/news/">News</a></li><li class=""><a href="/it/case-histories/">Case Histories</a></li><li class=""><a href="/it/rete-vendita/">Rete vendita</a></li><li class=""><a href="/it/service/">Service</a></li><li class=""><a href="/it/lavora-con-noi/">Lavora con noi</a></li><li class=""><a href="/it/contatti/">Contatti</a></li>      </ul>
+</nav>	<!-- Site Wrapper -->
+
+    <section class="header">
+        <section class="searchbar comnect">
+            <div id="product-search" class="text-right">
+	<span class="hidden-xs hidden-sm">RICERCA PRODOTTO</span>
+    <form role="search" id="srch-form">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="MODELLO" name="srch-term" id="srch-term" lang="it">
+            <div class="input-group-btn"></div>
+            <button type="submit" class="hidden">VAI</button>
+        </div>
+    </form>
+    <div class="comnect-logo">
+        <a href="http://comnect.comacchio.com" target="_blank"><img src="/images/COMNECT.png" style="height: 30px;"></a>
+    </div>
+</div>        </section>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-header">
+                <a id="nav-expander" class="nav-expander fixed"></a>
+                <a href="/it/" class="logo"></a>
+                <div id="lang-switcher">
+                    <select onChange="window.location.href=this.value">
+                        <option value="/" selected>ITA</option>
+        	            <option value="/en" >ENG</option>
+        	            <option value="/ru" >RUS</option>
+                        <option value="/de" >DEU</option>
+                        <option value="/fr" >FRA</option>
+                        <option value="/es" >ESP</option>
+                        <option value="/pt" >POR</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+	    		<section class="content-wrapper">
+            <div id="content_main" class="format">
+<h1>Error 404: File Not Found</h1>
+<p>The requested URL was not found on this server. Please verify your input or notify the webmaster of the problem.</p>
+</div>    	</section>
+		 
+    <!-- End Container -->
+	   <section class="footer">
+        <div class="container footer-top">
+            <div class="row">
+
+                <div class="col-sm-4 footer-nav">
+                    <h4>Vuoi essere sempre aggiornato sui nostri prodotti o novità?</h4>
+                    <a class="btn-outline btn-newsletter"  href="/it/newsletter">COMACCHIO NEWSLETTER</a>
+                </div>
+
+                <div class="col-sm-4 footer-follow">
+                    <h4>Seguici anche su</h4>
+                    <p>
+                        <a class="social" href="https://www.facebook.com/pages/Comacchio-Drilling-Hi-Tech/143450875731408"><i class="fa fa-facebook-official fa-2x"></i></a> 
+                        <a class="social" href="https://www.youtube.com/user/comacchioindustries/feed"><i class="fa fa-youtube fa-2x"></i></a>
+                        <a class="social" href="https://www.linkedin.com/organization/10183933/admin/updates"><i class="fa fa-linkedin fa-2x"></i></a>
+                    </p>
+                </div>
+
+                <div class="col-sm-4 footer-contacts">
+                    <h4>Contattaci</h4>
+                    <p>Pali trivellati - CFA - Consolidamenti - Ancoraggi - Geotecnica<br>Ricerche idriche - Geotermia - Lavori speciali<br><br>                        
+                        Via Callalta, 24/B - 31039<br>
+
+Riese Pio X (TV) - Italia<br>
+
+Tel. <a target="_blank" href="tel:+3904237585">+39 0423 7585</a> - Fax +39 0423 755592<br>
+
+E-mail: <a href="mailto:sales@comacchio.com">sales@comacchio.com</a>
+<!--
+Via Callalta, 24/B - 31039<br>
+Riese Pio X (TV) - Italia<br>
+Tel. +39 0423 7585 - Fax +39 0423 755592<br>
+E-mail: <a href="mailto:sales@comacchio.com">sales@comacchio.com</a>
+-->
+                    </p>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 copy-left">
+                            <p>©  Comacchio S.p.A. - P. IVA e C.F. 02019450267
+                            </p>
+                        </div>
+                        <div class="col-sm-6 copy-right">
+                            <p>
+							<a href="https://www.comacchio.com/it/fea">FEA</a> |
+							<a href="https://www.comacchio.com/it/whistleblowing">whistleblowing</a> |
+                            <a href="/it/certificazioni">certificazioni </a> |
+                            <a href="/it/privacy">privacy & cookies </a> |
+                            <a href="http://www.fkdesign.it" target="_blank">credits</a>
+                            </p>
+                        </div>
+                        <div class="col-sm-12 text-center">
+                            <p><a href="/" title="Link alla versione italiana di Comacchio Drilling Hi-tech">ITA version |</a>
+                            <a href="/en/" title="Link to english version of Comacchio Drilling Hi-tech">ENG version |</a>
+                            <a href="/fr/" title="Lien vers la version française de Comacchio Drilling Hi-tech">FRE version |</a>
+                            <a href="/ru/" title="Ссылка на российскую версию Comacchio Drilling Hi-tech">RUS version |</a>
+                            <a href="/es/" title="Enlace a la versión en español de Comacchio Drilling Hi-tech">ESP version |</a>
+                            <a href="/pt/" title="Link para a versão em português do Comacchio Drilling Hi-tech">POR version |</a>
+                            <a href="/de/" title="Link zur deutschen Version von Comacchio Drilling Hi-Tech">DEU version </a></p>
+                        </div>
+                    </div>
+            </div>
+
+        </div>
+
+    </section>
+    
+    <!-- Scripts -->
+    <!-- Javascript
+    ================================================== -->
+    <!-- Base -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!-- Lightbox -->
+    <script src="/js/venobox.js"></script>
+
+    <!-- Carousel -->
+    <script src="/js/owl.carousel.min.js"></script>
+
+    <!-- Tooltips -->
+    <script src="/js/tooltips.js"></script>
+
+    <!-- Scripts -->
+    <script src="/js/main.js"></script>
+    <script src="/js/equalize.js"></script>
+    <script>
+    $('.product-block, .news-block, .home-block').click(function(){
+        loc = $(this).find('.arrowlink').attr('href');
+        if (loc != undefined)
+            location.href = loc;
+    });
+
+    $('<style>.model-selected > .single-product{border-color:; } .activeModel > a > h4{ color:; }</style>').appendTo('head');
+    </script>
+    
+        <script>
+        if ($('#popup-noone').length) {
+            $('#popup-noone').modal('show');
+            
+            setCookie("popupit", "open", 1);
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+          var d = new Date();
+          d.setTime(d.getTime() + (exdays*24*60*60*1000));
+          var expires = "expires="+ d.toUTCString();
+          document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+    </script>
+
+    <script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+    <script>addBackToTop({
+      diameter: 56,
+      backgroundColor: '#d02e26',
+      textColor: '#fff'
+    })</script>
+</body>
+</html>
+
