@@ -369,10 +369,6 @@ export default function HomePage() {
                 ))}
               </div>
 
-              <a href="#azsafe" className="btn-primary mt-8 inline-flex">
-                {az ? 'Məhsullarımız' : 'Our Products'}
-                <ArrowRight size={18} />
-              </a>
             </div>
 
             {/* Photo */}
