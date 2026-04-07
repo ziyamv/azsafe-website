@@ -623,7 +623,7 @@ export default function HomePage() {
           </div>
 
           {/* Main slider */}
-          <div className="relative rounded-2xl overflow-hidden bg-navy-900 mb-6" style={{ height: '620px' }}>
+          <div className="relative rounded-2xl overflow-hidden bg-navy-900 mb-6" style={{ height: '700px' }}>
             {galleryMedia.map((item, i) => (
               item.type === 'video' ? (
                 <video
