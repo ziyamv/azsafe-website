@@ -18,7 +18,7 @@ export default function Navbar() {
 
   // Intersection observer for active section
   useEffect(() => {
-    const sections = ['home', 'about', 'azsafe', 'azsafe-kran', 'after-sales', 'contact']
+    const sections = ['home', 'about', 'azsafe', 'azsafe-kran', 'after-sales', 'gallery', 'contact']
     const observers: IntersectionObserver[] = []
     sections.forEach((id) => {
       const el = document.getElementById(id)
@@ -39,6 +39,7 @@ export default function Navbar() {
     { href: '#azsafe',     label: 'AZSAFE'                                          },
     { href: '#azsafe-kran', label: 'AZSAFE Kran'                                    },
     { href: '#after-sales',label: lang === 'az' ? 'Satış Sonrası': 'After Sales'   },
+    { href: '#gallery',    label: lang === 'az' ? 'Layihələr'    : 'Projects'       },
     { href: '#contact',    label: lang === 'az' ? 'Əlaqə'        : 'Contact'        },
   ]
 

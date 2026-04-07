@@ -88,6 +88,18 @@ export default function HomePage() {
     },
   ]
   const [slideIndex, setSlideIndex] = useState(0)
+  const [galleryIndex, setGalleryIndex] = useState(0)
+
+  const galleryImages = [
+    { src: '/images/gallery-1.jpg',       caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/gallery-2.jpg',       caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/gallery-3.jpg',       caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/BG50 BAKU PALACE.jpg', caption: az ? 'BAUER BG50 — Bakı' : 'BAUER BG50 — Baku' },
+    { src: '/images/drilling-baku.jpg',   caption: az ? 'Qazma işləri — Bakı' : 'Drilling works — Baku' },
+    { src: '/images/slide-icare.jpg',     caption: az ? 'Kran icarəsi' : 'Crane rental' },
+    { src: '/images/slide-svay.jpg',      caption: az ? 'Svay işləri' : 'Piling works' },
+    { src: '/images/slide-service.jpg',   caption: az ? 'Servis xidmətləri' : 'Service works' },
+  ]
   useEffect(() => {
     const t = setInterval(() => setSlideIndex((i) => (i + 1) % heroSlides.length), 5000)
     return () => clearInterval(t)
@@ -152,15 +164,15 @@ export default function HomePage() {
     },
     {
       name: 'TECHNIWELL',
-      origin: az ? 'Türkiyə' : 'Turkey',
+      origin: az ? 'İtaliya' : 'Italy',
       desc: az
-        ? 'Dağ-mədən sənayesi üçün yüksək keyfiyyətli avadanlıqlar. Qazma sistemləri, hava kompressorları, hidravlik çəkiclər.'
-        : 'High-quality equipment for the mining industry. Drilling systems, air compressors, hydraulic hammers.',
+        ? '30 ildən çox təcrübəyə malik italyan istehsalçısı. Jet-qazıma, ineksiya, qarışdırma və nasos sistemlərinin istehsalında dünya lideri.'
+        : 'Italian manufacturer with over 30 years of experience. World leader in jet-grouting, injection, mixing, and pumping systems.',
       items: az
-        ? ['Qazma sistemləri', 'Hava kompressorları', 'Hidravlik çəkiclər', 'Köməkçi avadanlıqlar']
-        : ['Drilling systems', 'Air compressors', 'Hydraulic hammers', 'Auxiliary equipment'],
-      website: 'https://www.techniwell.com.tr',
-      logo: '/images/metax.png',
+        ? ['Jet-qazıma avadanlığı', 'Qrauting nasos sistemləri', 'İneksiya və qarışdırma', 'Zəmin möhkəmləndirmə texnikası']
+        : ['Jet-grouting equipment', 'Grouting pump systems', 'Injection & mixing', 'Soil consolidation machinery'],
+      website: 'https://www.tecniwell.it/en/',
+      logo: '/images/techniwell-logo.webp',
       img: '',
     },
   ]
@@ -169,6 +181,7 @@ export default function HomePage() {
   const cranes = [
     {
       title: az ? 'Mobil Kranlar'           : 'Mobile Cranes',
+      img: '/images/mobil-kran.jpg',
       capacity: '25t – 500t',
       desc: az
         ? 'Müxtəlif yük tutumu olan avtomobil kranları. Sürətli qurulum, şəhər daxilində yüksək manevrelik.'
@@ -179,6 +192,7 @@ export default function HomePage() {
     },
     {
       title: az ? 'Dağlıq Ərazi Kranları'   : 'Rough Terrain Cranes',
+      img: '/images/dagliq-kran.jpg',
       capacity: '50t – 200t',
       desc: az
         ? 'Çətin relyef şəraitində işləmək üçün xüsusi hazırlanmış. Pis yollarda, dağlıq ərazilərdə effektiv.'
@@ -314,8 +328,8 @@ export default function HomePage() {
                 </p>
                 <p>
                   {az
-                    ? 'Müştərilərimizə ən yüksək keyfiyyətdə avadanlıq və xidmət təqdim etmək əsas məqsədimizdir. BAUER, BETEK, COMACCHIO, METAX və DRILLING HI-TECH kimi dünya brendlərinin Azərbaycandakı distribütoru kimi, satış və satış sonrası xidmətlər sahəsində tam həll yolları təklif edirik.'
-                    : 'Our primary goal is to provide customers with the highest quality equipment and service. As distributor of BAUER, BETEK, COMACCHIO, METAX and DRILLING HI-TECH in Azerbaijan, we offer complete solutions in sales and after-sales services.'}
+                    ? 'Müştərilərimizə ən yüksək keyfiyyətdə avadanlıq və xidmət təqdim etmək əsas məqsədimizdir. BAUER, BETEK, COMACCHIO və TECHNIWELL kimi dünya brendlərinin Azərbaycandakı distribütoru kimi, satış və satış sonrası xidmətlər sahəsində tam həll yolları təklif edirik.'
+                    : 'Our primary goal is to provide customers with the highest quality equipment and service. As distributor of BAUER, BETEK, COMACCHIO and TECHNIWELL in Azerbaijan, we offer complete solutions in sales and after-sales services.'}
                 </p>
               </div>
 
@@ -427,10 +441,10 @@ export default function HomePage() {
       <section id="azsafe-kran" className="section-pad bg-white">
         <div className="container-xl">
           {/* Header */}
-          <div className="text-center mb-14">
+          <div className="text-center mb-10">
             <p className="section-label justify-center">AZSAFE Kran</p>
             <h2 className="text-4xl font-black text-navy-900 mb-4">
-              {az ? 'Kran İcarəsi Xidmətləri' : 'Crane Rental Services'}
+              {az ? 'İcarə Xidmətlərimiz' : 'Our Rental Services'}
             </h2>
             <p className="text-slate-500 max-w-xl mx-auto text-base">
               {az
@@ -439,23 +453,28 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Crane cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
+          {/* Services row — above cards */}
+          <div className="bg-navy-900 rounded-2xl p-8 mb-10">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+              {craneServices.map((s) => (
+                <div key={s} className="text-center p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors">
+                  <div className="w-10 h-10 bg-blue-brand/20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <CheckCircle size={18} className="text-blue-light" />
+                  </div>
+                  <span className="text-white text-xs font-semibold leading-tight block">{s}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Crane cards — 2 cols centered */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto mb-10">
             {cranes.map((crane) => (
               <div key={crane.title} className="card group">
-                {/* Photo placeholder (replace with actual crane photos) */}
-                <div className="img-ph h-52 relative">
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1557BF" strokeWidth="1.2">
-                    <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
-                  </svg>
-                  <span className="text-blue-brand text-xs font-semibold px-4 text-center">
-                    {/* TODO: Add crane photo here */}
-                    {crane.title}
-                  </span>
+                <div className="h-56 overflow-hidden rounded-t-2xl">
+                  <img src={crane.img} alt={crane.title} className="w-full h-full object-cover" />
                 </div>
-
                 <div className="p-7">
-                  {/* Capacity badge */}
                   <div className="inline-block bg-navy-900 text-white text-xs font-bold px-3 py-1 rounded-full mb-4">
                     {crane.capacity}
                   </div>
@@ -475,23 +494,6 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* Services row */}
-          <div className="bg-navy-900 rounded-2xl p-8">
-            <h3 className="text-white font-black text-lg text-center mb-8">
-              {az ? 'Kran İcarəsi Xidmətlərimiz' : 'Our Crane Rental Services'}
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-              {craneServices.map((s) => (
-                <div key={s} className="text-center p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors">
-                  <div className="w-10 h-10 bg-blue-brand/20 rounded-lg flex items-center justify-center mx-auto mb-3">
-                    <CheckCircle size={18} className="text-blue-light" />
-                  </div>
-                  <span className="text-white text-xs font-semibold leading-tight block">{s}</span>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Special Projects */}
@@ -596,7 +598,64 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════
-          6. CLIENT LOGOS
+          6. PROJECT GALLERY
+      ════════════════════════════════════════════════════════ */}
+      <section id="gallery" className="section-pad bg-slate-50">
+        <div className="container-xl">
+          <div className="text-center mb-12">
+            <p className="section-label justify-center">{az ? 'Fotoqalereya' : 'Photo Gallery'}</p>
+            <h2 className="text-4xl font-black text-navy-900 mb-4">
+              {az ? 'Layihə Qalereyası' : 'Project Gallery'}
+            </h2>
+            <p className="text-slate-500 max-w-xl mx-auto text-base">
+              {az ? 'Azərbaycan və regiondakı tamamlanmış layihələrimizdən görüntülər.' : 'Images from our completed projects across Azerbaijan and the region.'}
+            </p>
+          </div>
+
+          {/* Main slider */}
+          <div className="relative rounded-2xl overflow-hidden bg-navy-900 mb-6" style={{ height: '480px' }}>
+            {galleryImages.map((img, i) => (
+              <img
+                key={img.src}
+                src={img.src}
+                alt={img.caption}
+                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                style={{ opacity: i === galleryIndex ? 1 : 0 }}
+              />
+            ))}
+            {/* Caption */}
+            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-navy-900/80 to-transparent px-8 py-6">
+              <p className="text-white font-semibold text-sm">{galleryImages[galleryIndex].caption}</p>
+              <p className="text-white/50 text-xs">{galleryIndex + 1} / {galleryImages.length}</p>
+            </div>
+            {/* Prev/Next */}
+            <button
+              onClick={() => setGalleryIndex((i) => (i - 1 + galleryImages.length) % galleryImages.length)}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all"
+            >‹</button>
+            <button
+              onClick={() => setGalleryIndex((i) => (i + 1) % galleryImages.length)}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all"
+            >›</button>
+          </div>
+
+          {/* Thumbnail strip */}
+          <div className="grid grid-cols-4 sm:grid-cols-8 gap-2">
+            {galleryImages.map((img, i) => (
+              <button
+                key={img.src}
+                onClick={() => setGalleryIndex(i)}
+                className={`rounded-xl overflow-hidden h-16 border-2 transition-all ${i === galleryIndex ? 'border-blue-brand scale-105' : 'border-transparent opacity-60 hover:opacity-100'}`}
+              >
+                <img src={img.src} alt="" className="w-full h-full object-cover" />
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════
+          7. CLIENT LOGOS
       ════════════════════════════════════════════════════════ */}
       <section className="py-16 bg-white border-y border-slate-100">
         <div className="container-xl">

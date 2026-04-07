@@ -13,6 +13,7 @@ export default function Footer() {
     { href: '#azsafe',      label: az ? 'Avadanlıqlar'  : 'Equipment'   },
     { href: '#azsafe-kran', label: az ? 'Kran İcarəsi'  : 'Crane Rental'},
     { href: '#after-sales', label: az ? 'Satış Sonrası' : 'After Sales' },
+    { href: '#gallery',     label: az ? 'Layihələr'     : 'Projects'    },
     { href: '#contact',     label: az ? 'Əlaqə'         : 'Contact'     },
   ]
 
@@ -60,7 +61,7 @@ export default function Footer() {
               {az ? 'Brendlər' : 'Brands'}
             </h3>
             <ul className="space-y-2">
-              {['BAUER', 'BETEK', 'COMACCHIO', 'METAX'].map((b) => (
+              {['BAUER', 'BETEK', 'COMACCHIO', 'TECHNIWELL'].map((b) => (
                 <li key={b}>
                   <a href="#azsafe" className="text-white/45 text-sm hover:text-white transition-colors">{b}</a>
                 </li>
