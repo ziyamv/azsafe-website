@@ -90,15 +90,26 @@ export default function HomePage() {
   const [slideIndex, setSlideIndex] = useState(0)
   const [galleryIndex, setGalleryIndex] = useState(0)
 
-  const galleryImages = [
-    { src: '/images/gallery-1.jpg',       caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/gallery-2.jpg',       caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/gallery-3.jpg',       caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/BG50 BAKU PALACE.jpg', caption: az ? 'BAUER BG50 — Bakı' : 'BAUER BG50 — Baku' },
-    { src: '/images/drilling-baku.jpg',   caption: az ? 'Qazma işləri — Bakı' : 'Drilling works — Baku' },
-    { src: '/images/slide-icare.jpg',     caption: az ? 'Kran icarəsi' : 'Crane rental' },
-    { src: '/images/slide-svay.jpg',      caption: az ? 'Svay işləri' : 'Piling works' },
-    { src: '/images/slide-service.jpg',   caption: az ? 'Servis xidmətləri' : 'Service works' },
+  const galleryMedia: { src: string; type: 'image' | 'video'; caption: string }[] = [
+    { src: '/images/gallery-1.jpg',        type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/gallery-2.jpg',        type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/gallery-3.jpg',        type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/gallery-4.jpg',        type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/gallery-5.jpg',        type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/gallery-6.jpg',        type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/gallery-7.jpg',        type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/gallery-8.jpg',        type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/gallery-9.jpg',        type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/gallery-10.jpg',       type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/gallery-11.jpg',       type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/BG50 BAKU PALACE.jpg', type: 'image', caption: az ? 'BAUER BG50 — Bakı' : 'BAUER BG50 — Baku' },
+    { src: '/images/drilling-baku.jpg',    type: 'image', caption: az ? 'Qazma işləri — Bakı' : 'Drilling works — Baku' },
+    { src: '/images/slide-icare.jpg',      type: 'image', caption: az ? 'Kran icarəsi' : 'Crane rental' },
+    { src: '/images/slide-svay.jpg',       type: 'image', caption: az ? 'Svay işləri' : 'Piling works' },
+    { src: '/videos/gallery-vid-1.mp4',    type: 'video', caption: az ? 'Layihə videosu' : 'Project video' },
+    { src: '/videos/gallery-vid-2.mp4',    type: 'video', caption: az ? 'Layihə videosu' : 'Project video' },
+    { src: '/videos/gallery-vid-3.mp4',    type: 'video', caption: az ? 'Layihə videosu' : 'Project video' },
+    { src: '/videos/gallery-vid-4.mp4',    type: 'video', caption: az ? 'Layihə videosu' : 'Project video' },
   ]
   useEffect(() => {
     const t = setInterval(() => setSlideIndex((i) => (i + 1) % heroSlides.length), 5000)
@@ -362,7 +373,7 @@ export default function HomePage() {
               />
               {/* Floating badge */}
               <div className="absolute -bottom-5 -left-5 bg-navy-900 text-white rounded-xl px-6 py-4 shadow-xl">
-                <div className="text-2xl font-black">10+</div>
+                <div className="text-2xl font-black">19+</div>
                 <div className="text-xs text-white/60 font-medium mt-0.5">
                   {az ? 'İl Təcrübə' : 'Years Experience'}
                 </div>
@@ -614,40 +625,59 @@ export default function HomePage() {
 
           {/* Main slider */}
           <div className="relative rounded-2xl overflow-hidden bg-navy-900 mb-6" style={{ height: '480px' }}>
-            {galleryImages.map((img, i) => (
-              <img
-                key={img.src}
-                src={img.src}
-                alt={img.caption}
-                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
-                style={{ opacity: i === galleryIndex ? 1 : 0 }}
-              />
+            {galleryMedia.map((item, i) => (
+              item.type === 'video' ? (
+                <video
+                  key={item.src}
+                  src={item.src}
+                  muted
+                  autoPlay
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                  style={{ opacity: i === galleryIndex ? 1 : 0 }}
+                />
+              ) : (
+                <img
+                  key={item.src}
+                  src={item.src}
+                  alt={item.caption}
+                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                  style={{ opacity: i === galleryIndex ? 1 : 0 }}
+                />
+              )
             ))}
             {/* Caption */}
             <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-navy-900/80 to-transparent px-8 py-6">
-              <p className="text-white font-semibold text-sm">{galleryImages[galleryIndex].caption}</p>
-              <p className="text-white/50 text-xs">{galleryIndex + 1} / {galleryImages.length}</p>
+              <p className="text-white font-semibold text-sm">{galleryMedia[galleryIndex].caption}</p>
+              <p className="text-white/50 text-xs">{galleryIndex + 1} / {galleryMedia.length}</p>
             </div>
             {/* Prev/Next */}
             <button
-              onClick={() => setGalleryIndex((i) => (i - 1 + galleryImages.length) % galleryImages.length)}
+              onClick={() => setGalleryIndex((i) => (i - 1 + galleryMedia.length) % galleryMedia.length)}
               className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all"
             >‹</button>
             <button
-              onClick={() => setGalleryIndex((i) => (i + 1) % galleryImages.length)}
+              onClick={() => setGalleryIndex((i) => (i + 1) % galleryMedia.length)}
               className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all"
             >›</button>
           </div>
 
           {/* Thumbnail strip */}
-          <div className="grid grid-cols-4 sm:grid-cols-8 gap-2">
-            {galleryImages.map((img, i) => (
+          <div className="grid grid-cols-5 sm:grid-cols-10 gap-2">
+            {galleryMedia.map((item, i) => (
               <button
-                key={img.src}
+                key={item.src}
                 onClick={() => setGalleryIndex(i)}
                 className={`rounded-xl overflow-hidden h-16 border-2 transition-all ${i === galleryIndex ? 'border-blue-brand scale-105' : 'border-transparent opacity-60 hover:opacity-100'}`}
               >
-                <img src={img.src} alt="" className="w-full h-full object-cover" />
+                {item.type === 'video' ? (
+                  <div className="w-full h-full bg-navy-900 flex items-center justify-center">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                ) : (
+                  <img src={item.src} alt="" className="w-full h-full object-cover" />
+                )}
               </button>
             ))}
           </div>
