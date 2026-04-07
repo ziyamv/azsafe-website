@@ -341,26 +341,26 @@ export default function HomePage() {
             <div>
               <p className="section-label">{az ? 'Haqqımızda' : 'About Us'}</p>
               <h2 className="text-4xl font-black text-navy-900 mb-6 leading-tight">
-                {az ? 'Azərbaycanda Ağır Texnika Sahəsinin Etibarlı Adı' : 'The Trusted Name in Heavy Equipment in Azerbaijan'}
+                {az ? 'Fondament, Svay və Berkitmə Texnikası Üzrə İxtisaslaşmış Tərəfdaş' : 'Your Specialist Partner in Foundation, Piling & Ground Improvement'}
               </h2>
               <div className="space-y-4 text-slate-600 leading-relaxed text-base">
                 <p>
                   {az
-                    ? 'AZSAFE MMC Azərbaycanın aparıcı ağır texnika şirkətlərindən biridir. Xırdalan şəhərindəki mərkəzimizlə iki əsas istiqamətdə fəaliyyət göstəririk: AZSAFE brendi altında qazma və təməl avadanlıqları, AZSAFE Kran brendi altında isə kran icarəsi xidmətləri.'
-                    : 'AZSAFE MMC is one of Azerbaijan\'s leading heavy equipment companies. Based in Khirdalan, we operate in two directions: under the AZSAFE brand in drilling and foundation equipment, and under AZSAFE Kran in crane rental services.'}
+                    ? 'AZSAFE MMC fondament mühəndisliyi, svay texnikası və zəmin berkitmə sahələrində avadanlıq satışı, icarəsi və layihə təhvili üzrə ixtisaslaşmış şirkətdir. Xırdalan şəhərindəki mərkəzimizlə iki əsas istiqamətdə fəaliyyət göstəririk: AZSAFE brendi altında qazma və təməl avadanlıqları, AZSAFE Kran brendi altında isə kran icarəsi xidmətləri.'
+                    : 'AZSAFE MMC is a specialist company in the supply, rental and full project delivery of foundation engineering, piling and ground improvement equipment. Based in Khirdalan, we operate under two brands: AZSAFE for drilling and foundation machinery, and AZSAFE Kran for crane rental services.'}
                 </p>
                 <p>
                   {az
-                    ? 'Müştərilərimizə ən yüksək keyfiyyətdə avadanlıq və xidmət təqdim etmək əsas məqsədimizdir. BAUER, BETEK, COMACCHIO və TECHNIWELL kimi dünya brendlərinin Azərbaycandakı distribütoru kimi, satış və satış sonrası xidmətlər sahəsində tam həll yolları təklif edirik.'
-                    : 'Our primary goal is to provide customers with the highest quality equipment and service. As distributor of BAUER, BETEK, COMACCHIO and TECHNIWELL in Azerbaijan, we offer complete solutions in sales and after-sales services.'}
+                    ? 'BAUER, BETEK, COMACCHIO və TECHNIWELL kimi dünya liderlerinin Azərbaycandakı səlahiyyətli distribütoru kimi, avadanlıq satışından tutmuş satış sonrası texniki dəstəyə, ehtiyat hissə təchizatından layihənin tam idarə edilməsinə qədər bütün prosesləri əhatə edən həll yolları təqdim edirik.'
+                    : 'As the authorized distributor of BAUER, BETEK, COMACCHIO and TECHNIWELL in Azerbaijan, we provide end-to-end solutions covering equipment sales, after-sales technical support, spare parts supply and complete project management.'}
                 </p>
               </div>
 
               {/* Key points */}
               <div className="mt-8 space-y-3">
                 {(az
-                  ? ['Dünya brendlərinin Azərbaycandakı distribütoru', '2007-dən bəri sənaye təcrübəsi', 'Satış sonrası tam xidmət dəstəyi', 'Kran icarəsi — AZSAFE Kran']
-                  : ['Authorized distributor of world brands in Azerbaijan', 'Industry experience since 2007', 'Complete after-sales service support', 'Crane rental — AZSAFE Kran']
+                  ? ['Fondament və svay avadanlıqlarının səlahiyyətli distribütoru', 'Avadanlıq satışı, icarəsi və layihə təhvili', 'Satış sonrası texniki xidmət və ehtiyat hissələri', 'Kran icarəsi — AZSAFE Kran']
+                  : ['Authorized distributor of foundation & piling equipment', 'Equipment sales, rental and full project delivery', 'After-sales technical service and spare parts', 'Crane rental — AZSAFE Kran']
                 ).map((item) => (
                   <div key={item} className="flex items-start gap-3">
                     <CheckCircle size={18} className="text-blue-brand mt-0.5 shrink-0" />
