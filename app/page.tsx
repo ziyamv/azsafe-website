@@ -102,7 +102,6 @@ export default function HomePage() {
     { src: '/images/gallery-9.jpg',        type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
     { src: '/images/gallery-10.jpg',       type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
     { src: '/images/gallery-11.jpg',       type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/BG50 BAKU PALACE.jpg', type: 'image', caption: az ? 'BAUER BG50 — Bakı' : 'BAUER BG50 — Baku' },
     { src: '/images/drilling-baku.jpg',    type: 'image', caption: az ? 'Qazma işləri — Bakı' : 'Drilling works — Baku' },
     { src: '/images/slide-icare.jpg',      type: 'image', caption: az ? 'Kran icarəsi' : 'Crane rental' },
     { src: '/images/slide-svay.jpg',       type: 'image', caption: az ? 'Svay işləri' : 'Piling works' },
@@ -624,7 +623,7 @@ export default function HomePage() {
           </div>
 
           {/* Main slider */}
-          <div className="relative rounded-2xl overflow-hidden bg-navy-900 mb-6" style={{ height: '480px' }}>
+          <div className="relative rounded-2xl overflow-hidden bg-navy-900 mb-6" style={{ height: '620px' }}>
             {galleryMedia.map((item, i) => (
               item.type === 'video' ? (
                 <video
@@ -664,12 +663,12 @@ export default function HomePage() {
           </div>
 
           {/* Thumbnail strip */}
-          <div className="grid grid-cols-5 sm:grid-cols-10 gap-2">
+          <div className="grid grid-cols-5 sm:grid-cols-9 gap-3">
             {galleryMedia.map((item, i) => (
               <button
                 key={item.src}
                 onClick={() => setGalleryIndex(i)}
-                className={`rounded-xl overflow-hidden h-16 border-2 transition-all ${i === galleryIndex ? 'border-blue-brand scale-105' : 'border-transparent opacity-60 hover:opacity-100'}`}
+                className={`rounded-xl overflow-hidden h-24 border-2 transition-all ${i === galleryIndex ? 'border-blue-brand scale-105' : 'border-transparent opacity-60 hover:opacity-100'}`}
               >
                 {item.type === 'video' ? (
                   <div className="w-full h-full bg-navy-900 flex items-center justify-center">
