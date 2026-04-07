@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import {
   ArrowRight, CheckCircle, Phone, Mail, MapPin, Clock,
@@ -89,6 +89,7 @@ export default function HomePage() {
   ]
   const [slideIndex, setSlideIndex] = useState(0)
   const [galleryIndex, setGalleryIndex] = useState(0)
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
 
   const galleryMedia: { src: string; type: 'image' | 'video'; caption: string }[] = [
     { src: '/images/gallery-1.jpg',        type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
@@ -114,6 +115,18 @@ export default function HomePage() {
     const t = setInterval(() => setSlideIndex((i) => (i + 1) % heroSlides.length), 5000)
     return () => clearInterval(t)
   }, [])
+
+  useEffect(() => {
+    videoRefs.current.forEach((vid, i) => {
+      if (!vid) return
+      if (i === galleryIndex) {
+        vid.play().catch(() => {})
+      } else {
+        vid.pause()
+        vid.currentTime = 0
+      }
+    })
+  }, [galleryIndex])
 
   /* ─── contact form state ─── */
   const [form, setForm] = useState({ name: '', company: '', phone: '', email: '', message: '' })
@@ -628,9 +641,9 @@ export default function HomePage() {
               item.type === 'video' ? (
                 <video
                   key={item.src}
+                  ref={(el) => { videoRefs.current[i] = el }}
                   src={item.src}
                   muted
-                  autoPlay
                   loop
                   playsInline
                   className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
