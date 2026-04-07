@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import {
   ArrowRight, CheckCircle, Phone, Mail, MapPin, Clock,
@@ -56,6 +56,43 @@ export default function HomePage() {
 
   const az = lang === 'az'
 
+  /* ─── hero slider state ─── */
+  const heroSlides = [
+    {
+      img: '/images/hero-bg.jpg',
+      titleAz: <><span>Svay texnikasında</span><span className="block mt-4 text-blue-light">Etibarlı Həllər</span></>,
+      titleEn: <><span>Reliable Solutions</span><span className="block mt-4 text-blue-light">in Heavy Equipment</span></>,
+      subAz: 'Qazma avadanlıqları satışı, satış sonrası xidmət, peşəkar kran və svay icarəsi — AZSAFE MMC.',
+      subEn: 'Drilling equipment sales, after-sales service, professional crane and pile rental — AZSAFE MMC.',
+    },
+    {
+      img: '/images/slide-icare.jpg',
+      titleAz: <span>Kranların İcarəsi</span>,
+      titleEn: <span>Crane Rental Services</span>,
+      subAz: 'Müasir kran flotu ilə hər növ yükqaldırma tapşırığı üçün qısamüddətli və uzunmüddətli icarə.',
+      subEn: 'Short and long-term crane rental for all lifting tasks with our modern fleet.',
+    },
+    {
+      img: '/images/slide-svay.jpg',
+      titleAz: <span>Svay və bərkitmə avadanlığı texnikası və servisi</span>,
+      titleEn: <span>Pile & Foundation Equipment Supply and Service</span>,
+      subAz: 'BAUER, COMACCHIO və digər dünya brendlərinin svay və zəmin möhkəmləndirmə avadanlıqları.',
+      subEn: 'BAUER, COMACCHIO and other world-class pile driving and ground consolidation equipment.',
+    },
+    {
+      img: '/images/slide-service.jpg',
+      titleAz: <span>Satış sonrası servis və avadanlıqlara xidmət</span>,
+      titleEn: <span>After-Sales Service & Equipment Maintenance</span>,
+      subAz: 'Sertifikatlı texniki komandamız avadanlıqlarınızın fasiləsiz işləməsini təmin edir.',
+      subEn: 'Our certified technical team ensures your equipment runs without interruption.',
+    },
+  ]
+  const [slideIndex, setSlideIndex] = useState(0)
+  useEffect(() => {
+    const t = setInterval(() => setSlideIndex((i) => (i + 1) % heroSlides.length), 5000)
+    return () => clearInterval(t)
+  }, [])
+
   /* ─── contact form state ─── */
   const [form, setForm] = useState({ name: '', company: '', phone: '', email: '', message: '' })
   const [sent, setSent] = useState(false)
@@ -83,6 +120,7 @@ export default function HomePage() {
         ? ['Rotari qazma dəzgahları', 'Kazık sürücü avadanlığı', 'Beton hərəkət avadanlığı', 'Zəmin möhkəmləndirmə']
         : ['Rotary drilling rigs', 'Pile driving equipment', 'Concrete movement machinery', 'Ground consolidation'],
       /* Brand logo banner — bg color + text color matching corporate identity */
+      website: 'https://www.bauer.de',
       logo: '/images/bauer.png',
       img: IMG.baku,
     },
@@ -95,6 +133,7 @@ export default function HomePage() {
       items: az
         ? ['PDC qazma tacları', 'Karbid uçlar', 'Qazma borular', 'Xüsusi qazma alətləri']
         : ['PDC drill bits', 'Carbide tips', 'Drill pipes', 'Special drilling tools'],
+      website: 'https://www.betek.de',
       logo: '/images/BETEK.png',
       img: '',
     },
@@ -107,11 +146,12 @@ export default function HomePage() {
       items: az
         ? ['Geotexniki qazma', 'Su quyusu qazma', 'Fondament qazma', 'Çətin ərazilər üçün']
         : ['Geotechnical drilling', 'Water well drilling', 'Foundation drilling', 'Difficult terrain'],
+      website: 'https://www.comacchio.com',
       logo: '/images/commacchio.png',
       img: '',
     },
     {
-      name: 'METAX',
+      name: 'TECHNIWELL',
       origin: az ? 'Türkiyə' : 'Turkey',
       desc: az
         ? 'Dağ-mədən sənayesi üçün yüksək keyfiyyətli avadanlıqlar. Qazma sistemləri, hava kompressorları, hidravlik çəkiclər.'
@@ -119,6 +159,7 @@ export default function HomePage() {
       items: az
         ? ['Qazma sistemləri', 'Hava kompressorları', 'Hidravlik çəkiclər', 'Köməkçi avadanlıqlar']
         : ['Drilling systems', 'Air compressors', 'Hydraulic hammers', 'Auxiliary equipment'],
+      website: 'https://www.techniwell.com.tr',
       logo: '/images/metax.png',
       img: '',
     },
@@ -178,18 +219,22 @@ export default function HomePage() {
           1. HERO
       ════════════════════════════════════════════════════════ */}
       <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background photo */}
-        <img
-          src={IMG.hero}
-          alt="BAUER BG50 drilling rig"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        {/* Slider images */}
+        {heroSlides.map((slide, i) => (
+          <img
+            key={slide.img}
+            src={slide.img}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+            style={{ opacity: i === slideIndex ? 1 : 0 }}
+          />
+        ))}
 
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-navy-900/90 via-navy-900/70 to-navy-900/30" />
 
         <div className="container-xl relative z-10 pt-24 pb-16">
-          <div className="max-w-[600px]">
+          <div className="max-w-[640px]">
             {/* Eyebrow */}
             <div className="flex items-center gap-2 mb-4 sm:mb-6">
               <span className="w-8 h-0.5 bg-blue-brand" />
@@ -199,17 +244,11 @@ export default function HomePage() {
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-[3.25rem] font-black text-white leading-tight mb-4 sm:mb-6">
-              {az ? (
-                <>Ağır Texnikada<span className="block mt-4 text-blue-light">Etibarlı Həllər</span></>
-              ) : (
-                <>Reliable Solutions<span className="block mt-4 text-blue-light">in Heavy Equipment</span></>
-              )}
+              {az ? heroSlides[slideIndex].titleAz : heroSlides[slideIndex].titleEn}
             </h1>
 
             <p className="text-base sm:text-lg text-white/80 leading-relaxed mb-8 sm:mb-10">
-              {az
-                ? 'Qazma avadanlıqları satışı, satış sonrası xidmət və peşəkar kran icarəsi — AZSAFE MMC.'
-                : 'Drilling equipment sales, after-sales service and professional crane rental — AZSAFE MMC.'}
+              {az ? heroSlides[slideIndex].subAz : heroSlides[slideIndex].subEn}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -217,11 +256,21 @@ export default function HomePage() {
                 {az ? 'Avadanlıqları Kəşf Et' : 'Explore Equipment'}
                 <ArrowRight size={18} />
               </a>
-              <a href="#vera-crane" className="btn-outline-white text-sm sm:text-base justify-center">
+              <a href="#azsafe-kran" className="btn-outline-white text-sm sm:text-base justify-center">
                 {az ? 'Kran İcarəsi' : 'Crane Rental'}
               </a>
             </div>
 
+            {/* Slide dots */}
+            <div className="flex gap-2 mt-8">
+              {heroSlides.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setSlideIndex(i)}
+                  className={`h-1.5 rounded-full transition-all ${i === slideIndex ? 'w-8 bg-white' : 'w-2 bg-white/40'}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
@@ -232,7 +281,7 @@ export default function HomePage() {
         <div className="container-xl py-32">
           <div className="grid grid-cols-3 divide-x divide-slate-200">
             {[
-              { v: '10+',  l: az ? 'İl Təcrübə'     : 'Years of Experience' },
+              { v: '2007', l: az ? 'dən bəri'        : 'Since 2007'          },
               { v: '5',    l: az ? 'Dünya Brendi'    : 'World Brands'        },
               { v: '24/7', l: az ? 'Texniki Dəstək'  : 'Technical Support'   },
             ].map((s) => (
@@ -260,8 +309,8 @@ export default function HomePage() {
               <div className="space-y-4 text-slate-600 leading-relaxed text-base">
                 <p>
                   {az
-                    ? 'AZSAFE MMC Azərbaycanın aparıcı ağır texnika şirkətlərindən biridir. Xırdalan şəhərindəki mərkəzimizlə iki əsas istiqamətdə fəaliyyət göstəririk: AZSAFE brendi altında qazma və təməl avadanlıqları, Vera Crane by AZSAFE brendi altında isə kran icarəsi xidmətləri.'
-                    : 'AZSAFE MMC is one of Azerbaijan\'s leading heavy equipment companies. Based in Khirdalan, we operate in two directions: under the AZSAFE brand in drilling and foundation equipment, and under Vera Crane by AZSAFE in crane rental services.'}
+                    ? 'AZSAFE MMC Azərbaycanın aparıcı ağır texnika şirkətlərindən biridir. Xırdalan şəhərindəki mərkəzimizlə iki əsas istiqamətdə fəaliyyət göstəririk: AZSAFE brendi altında qazma və təməl avadanlıqları, AZSAFE Kran brendi altında isə kran icarəsi xidmətləri.'
+                    : 'AZSAFE MMC is one of Azerbaijan\'s leading heavy equipment companies. Based in Khirdalan, we operate in two directions: under the AZSAFE brand in drilling and foundation equipment, and under AZSAFE Kran in crane rental services.'}
                 </p>
                 <p>
                   {az
@@ -273,8 +322,8 @@ export default function HomePage() {
               {/* Key points */}
               <div className="mt-8 space-y-3">
                 {(az
-                  ? ['Dünya brendlərinin Azərbaycandakı distribütoru', '10+ il sənaye təcrübəsi', 'Satış sonrası tam xidmət dəstəyi', 'Kran icarəsi — Vera Crane by AZSAFE']
-                  : ['Authorized distributor of world brands in Azerbaijan', '10+ years of industry experience', 'Complete after-sales service support', 'Crane rental — Vera Crane by AZSAFE']
+                  ? ['Dünya brendlərinin Azərbaycandakı distribütoru', '2007-dən bəri sənaye təcrübəsi', 'Satış sonrası tam xidmət dəstəyi', 'Kran icarəsi — AZSAFE Kran']
+                  : ['Authorized distributor of world brands in Azerbaijan', 'Industry experience since 2007', 'Complete after-sales service support', 'Crane rental — AZSAFE Kran']
                 ).map((item) => (
                   <div key={item} className="flex items-start gap-3">
                     <CheckCircle size={18} className="text-blue-brand mt-0.5 shrink-0" />
@@ -358,10 +407,12 @@ export default function HomePage() {
                   </ul>
 
                   <a
-                    href="#contact"
+                    href={brand.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="mt-auto inline-flex items-center gap-2 text-blue-brand font-bold text-sm hover:gap-3 transition-all"
                   >
-                    {az ? 'Sorğu Göndər' : 'Send Inquiry'} <ArrowRight size={14} />
+                    {az ? 'Rəsmi Sayt' : 'Official Website'} <ArrowRight size={14} />
                   </a>
                 </div>
               </div>
@@ -371,13 +422,13 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════
-          4. VERA CRANE RENTAL
+          4. AZSAFE KRAN RENTAL
       ════════════════════════════════════════════════════════ */}
-      <section id="vera-crane" className="section-pad bg-white">
+      <section id="azsafe-kran" className="section-pad bg-white">
         <div className="container-xl">
           {/* Header */}
           <div className="text-center mb-14">
-            <p className="section-label justify-center">Vera Crane by AZSAFE</p>
+            <p className="section-label justify-center">AZSAFE Kran</p>
             <h2 className="text-4xl font-black text-navy-900 mb-4">
               {az ? 'Kran İcarəsi Xidmətləri' : 'Crane Rental Services'}
             </h2>
@@ -438,6 +489,46 @@ export default function HomePage() {
                     <CheckCircle size={18} className="text-blue-light" />
                   </div>
                   <span className="text-white text-xs font-semibold leading-tight block">{s}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Special Projects */}
+          <div className="mt-10">
+            <h3 className="text-2xl font-black text-navy-900 mb-6 text-center">
+              {az ? 'Xüsusi Layihələr' : 'Special Projects'}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  titleAz: 'Vibro Çəkic Xidməti',
+                  titleEn: 'Vibratory Hammer Service',
+                  descAz: 'Torpaq və zəmin işlərində yüksək məhsuldarlıqlı vibro çəkic avadanlığının icarəsi və texniki xidməti.',
+                  descEn: 'Rental and technical service of high-productivity vibratory hammer equipment for earthwork and ground works.',
+                },
+                {
+                  titleAz: 'Svay və Şpunt Layihələri',
+                  titleEn: 'Pile & Sheet Pile Projects',
+                  descAz: 'Bina təməlləri, dəniz tikililər və neft-qaz obyektləri üçün svay çırpma və şpunt layihələrinin icrası.',
+                  descEn: 'Pile driving and sheet piling for building foundations, marine structures, and oil & gas facilities.',
+                },
+                {
+                  titleAz: 'Texnika və Dəstək',
+                  titleEn: 'Equipment & Support',
+                  descAz: 'Layihə müddətinə uyğun olaraq operator daxil texnika icarəsi, yerindəcə texniki dəstək və hissə təchizatı.',
+                  descEn: 'Operator-included equipment rental tailored to project duration, on-site technical support and parts supply.',
+                },
+              ].map((p) => (
+                <div key={p.titleAz} className="card p-7">
+                  <div className="w-10 h-10 bg-blue-pale rounded-lg flex items-center justify-center mb-4">
+                    <CheckCircle size={20} className="text-blue-brand" />
+                  </div>
+                  <h4 className="text-lg font-black text-navy-900 mb-2">{az ? p.titleAz : p.titleEn}</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed mb-5">{az ? p.descAz : p.descEn}</p>
+                  <a href="#contact" className="btn-primary w-full justify-center text-sm py-2.5">
+                    {az ? 'Ətraflı Məlumat' : 'Learn More'}
+                  </a>
                 </div>
               ))}
             </div>

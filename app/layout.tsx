@@ -6,9 +6,9 @@ import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
 
 export const metadata: Metadata = {
-  title: 'AZSAFE MMC | Qazma Avadanlıqları & Vera Crane Kran İcarəsi',
-  description: 'AZSAFE MMC — Azərbaycanda qazma avadanlıqları satışı, servis xidmətləri və Vera Crane kran icarəsi. BAUER, BETEK, COMACCHIO, METAX, DRILLING HI-TECH distribütoru.',
-  keywords: 'AZSAFE, drilling equipment Azerbaijan, kran icarəsi, crane rental Azerbaijan, BAUER, BETEK, COMACCHIO, Vera Crane, Xırdalan',
+  title: 'AZSAFE MMC | Svay Avadanlıqları & AZSAFE Kran İcarəsi',
+  description: 'AZSAFE MMC — Azərbaycanda svay və qazma avadanlıqları satışı, servis xidmətləri və AZSAFE Kran icarəsi. BAUER, BETEK, COMACCHIO, TECHNIWELL distribütoru.',
+  keywords: 'AZSAFE, svay avadanlığı, drilling equipment Azerbaijan, kran icarəsi, crane rental Azerbaijan, BAUER, BETEK, COMACCHIO, AZSAFE Kran, Xırdalan',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

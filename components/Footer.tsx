@@ -11,7 +11,7 @@ export default function Footer() {
     { href: '#home',        label: az ? 'Ana Səhifə'    : 'Home'        },
     { href: '#about',       label: az ? 'Haqqımızda'    : 'About'       },
     { href: '#azsafe',      label: az ? 'Avadanlıqlar'  : 'Equipment'   },
-    { href: '#vera-crane',  label: az ? 'Kran İcarəsi'  : 'Crane Rental'},
+    { href: '#azsafe-kran', label: az ? 'Kran İcarəsi'  : 'Crane Rental'},
     { href: '#after-sales', label: az ? 'Satış Sonrası' : 'After Sales' },
     { href: '#contact',     label: az ? 'Əlaqə'         : 'Contact'     },
   ]
@@ -27,7 +27,7 @@ export default function Footer() {
               {/* Logo on dark bg — invert to white */}
               <img src="/images/logo.png" alt="AZSAFE" className="h-10 w-auto brightness-0 invert mb-2" />
               <div className="text-[10px] text-white/30 font-medium tracking-widest uppercase">
-                + Vera Crane by AZSAFE
+                + AZSAFE Kran
               </div>
             </div>
             <p className="text-white/45 text-sm leading-relaxed">
