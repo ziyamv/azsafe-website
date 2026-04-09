@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import {
   ArrowRight, CheckCircle, Phone, Mail, MapPin, Clock,
@@ -89,36 +89,24 @@ export default function HomePage() {
   ]
   const [slideIndex, setSlideIndex] = useState(0)
   const [galleryIndex, setGalleryIndex] = useState(0)
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
 
-  const galleryMedia: { src: string; type: 'image' | 'video'; caption: string }[] = [
-    { src: '/images/np1.jpg',   type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/np2.jpg',   type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/np3.jpg',   type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/np4.jpg',   type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/np5.jpg',   type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/np6.jpg',   type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/np7.jpg',   type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/np8.jpg',   type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/np9.jpg',   type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/np10.jpg',  type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+  const galleryImages = [
+    { src: '/images/np1.jpg',  caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/np2.jpg',  caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/np3.jpg',  caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/np4.jpg',  caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/np5.jpg',  caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/np6.jpg',  caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/np7.jpg',  caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/np8.jpg',  caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/np9.jpg',  caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/np10.jpg', caption: az ? 'Layihə fotoları' : 'Project photos' },
   ]
+
   useEffect(() => {
     const t = setInterval(() => setSlideIndex((i) => (i + 1) % heroSlides.length), 5000)
     return () => clearInterval(t)
   }, [])
-
-  useEffect(() => {
-    videoRefs.current.forEach((vid, i) => {
-      if (!vid) return
-      if (i === galleryIndex) {
-        vid.play().catch(() => {})
-      } else {
-        vid.pause()
-        vid.currentTime = 0
-      }
-    })
-  }, [galleryIndex])
 
   /* ─── contact form state ─── */
   const [form, setForm] = useState({ name: '', company: '', phone: '', email: '', message: '' })
@@ -625,59 +613,40 @@ export default function HomePage() {
 
           {/* Main slider */}
           <div className="relative rounded-2xl overflow-hidden bg-navy-900 mb-6" style={{ height: '700px' }}>
-            {galleryMedia.map((item, i) => (
-              item.type === 'video' ? (
-                <video
-                  key={item.src}
-                  ref={(el) => { videoRefs.current[i] = el }}
-                  src={item.src}
-                  muted
-                  loop
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
-                  style={{ opacity: i === galleryIndex ? 1 : 0 }}
-                />
-              ) : (
-                <img
-                  key={item.src}
-                  src={item.src}
-                  alt={item.caption}
-                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
-                  style={{ opacity: i === galleryIndex ? 1 : 0 }}
-                />
-              )
+            {galleryImages.map((img, i) => (
+              <img
+                key={img.src}
+                src={img.src}
+                alt={img.caption}
+                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                style={{ opacity: i === galleryIndex ? 1 : 0 }}
+              />
             ))}
             {/* Caption */}
             <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-navy-900/80 to-transparent px-8 py-6">
-              <p className="text-white font-semibold text-sm">{galleryMedia[galleryIndex].caption}</p>
-              <p className="text-white/50 text-xs">{galleryIndex + 1} / {galleryMedia.length}</p>
+              <p className="text-white font-semibold text-sm">{galleryImages[galleryIndex]?.caption}</p>
+              <p className="text-white/50 text-xs">{galleryIndex + 1} / {galleryImages.length}</p>
             </div>
             {/* Prev/Next */}
             <button
-              onClick={() => setGalleryIndex((i) => (i - 1 + galleryMedia.length) % galleryMedia.length)}
+              onClick={() => setGalleryIndex((i) => (i - 1 + galleryImages.length) % galleryImages.length)}
               className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all"
             >‹</button>
             <button
-              onClick={() => setGalleryIndex((i) => (i + 1) % galleryMedia.length)}
+              onClick={() => setGalleryIndex((i) => (i + 1) % galleryImages.length)}
               className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all"
             >›</button>
           </div>
 
           {/* Thumbnail strip */}
-          <div className="grid grid-cols-5 sm:grid-cols-9 gap-3">
-            {galleryMedia.map((item, i) => (
+          <div className="grid grid-cols-5 sm:grid-cols-10 gap-3">
+            {galleryImages.map((img, i) => (
               <button
-                key={item.src}
+                key={img.src}
                 onClick={() => setGalleryIndex(i)}
                 className={`rounded-xl overflow-hidden h-24 border-2 transition-all ${i === galleryIndex ? 'border-blue-brand scale-105' : 'border-transparent opacity-60 hover:opacity-100'}`}
               >
-                {item.type === 'video' ? (
-                  <div className="w-full h-full bg-navy-900 flex items-center justify-center">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-                  </div>
-                ) : (
-                  <img src={item.src} alt="" className="w-full h-full object-cover" />
-                )}
+                <img src={img.src} alt="" className="w-full h-full object-cover" />
               </button>
             ))}
           </div>
