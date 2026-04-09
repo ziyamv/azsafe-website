@@ -102,10 +102,6 @@ export default function HomePage() {
     { src: '/images/np8.jpg',   type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
     { src: '/images/np9.jpg',   type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
     { src: '/images/np10.jpg',  type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/videos/gallery-vid-1.mp4', type: 'video', caption: az ? 'Layihə videosu' : 'Project video' },
-    { src: '/videos/gallery-vid-2.mp4', type: 'video', caption: az ? 'Layihə videosu' : 'Project video' },
-    { src: '/videos/gallery-vid-3.mp4', type: 'video', caption: az ? 'Layihə videosu' : 'Project video' },
-    { src: '/videos/gallery-vid-4.mp4', type: 'video', caption: az ? 'Layihə videosu' : 'Project video' },
   ]
   useEffect(() => {
     const t = setInterval(() => setSlideIndex((i) => (i + 1) % heroSlides.length), 5000)

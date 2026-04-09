@@ -34,13 +34,13 @@ export default function Navbar() {
   }, [])
 
   const links = [
-    { href: '#home',       label: lang === 'az' ? 'Ana Səhifə'   : 'Home'          },
-    { href: '#about',      label: lang === 'az' ? 'Haqqımızda'   : 'About'         },
-    { href: '#azsafe',     label: 'AZSAFE'                                          },
-    { href: '#azsafe-kran', label: 'AZSAFE Kran'                                    },
-    { href: '#after-sales',label: lang === 'az' ? 'Satış Sonrası': 'After Sales'   },
-    { href: '#gallery',    label: lang === 'az' ? 'Layihələr'    : 'Projects'       },
-    { href: '#contact',    label: lang === 'az' ? 'Əlaqə'        : 'Contact'        },
+    { href: '#home',        label: lang === 'az' ? 'Ana Səhifə'    : 'Home'         },
+    { href: '#about',       label: lang === 'az' ? 'Haqqımızda'    : 'About'        },
+    { href: '#azsafe',      label: 'AZSAFE'                                          },
+    { href: '#azsafe-kran', label: 'AZSAFE Kran'                                     },
+    { href: '#after-sales', label: lang === 'az' ? 'Satış Sonrası' : 'After Sales'  },
+    { href: '#gallery',     label: lang === 'az' ? 'Layihələr'     : 'Projects'      },
+    { href: '#contact',     label: lang === 'az' ? 'Əlaqə'         : 'Contact'       },
   ]
 
   const sectionId = (href: string) => href.replace('#', '')
