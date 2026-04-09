@@ -61,7 +61,7 @@ export default function Footer() {
               {az ? 'Brendlər' : 'Brands'}
             </h3>
             <ul className="space-y-2">
-              {['BAUER', 'BETEK', 'COMACCHIO', 'TECHNIWELL'].map((b) => (
+              {['BAUER', 'BETEK', 'COMACCHIO', 'TECNIWELL'].map((b) => (
                 <li key={b}>
                   <a href="#azsafe" className="text-white/45 text-sm hover:text-white transition-colors">{b}</a>
                 </li>

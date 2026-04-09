@@ -74,8 +74,8 @@ export default function HomePage() {
     },
     {
       img: '/images/slide-svay.jpg',
-      titleAz: <><span>Svay və bərkitmə avadanlığı</span><span className="block mt-4">texnikası və servisi</span></>,
-      titleEn: <><span>Pile & Foundation Equipment</span><span className="block mt-4">Supply and Service</span></>,
+      titleAz: <><span>Svay və Bərkitmə</span><span className="block mt-4">Avadanlıq Satışı və Servisi</span></>,
+      titleEn: <><span>Piling & Ground Improvement</span><span className="block mt-4">Equipment Sales & Service</span></>,
       subAz: 'BAUER, COMACCHIO və digər dünya brendlərinin svay və zəmin möhkəmləndirmə avadanlıqları.',
       subEn: 'BAUER, COMACCHIO and other world-class pile driving and ground consolidation equipment.',
     },
@@ -92,24 +92,20 @@ export default function HomePage() {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
 
   const galleryMedia: { src: string; type: 'image' | 'video'; caption: string }[] = [
-    { src: '/images/gallery-1.jpg',        type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/gallery-2.jpg',        type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/gallery-3.jpg',        type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/gallery-4.jpg',        type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/gallery-5.jpg',        type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/gallery-6.jpg',        type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/gallery-7.jpg',        type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/gallery-8.jpg',        type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/gallery-9.jpg',        type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/gallery-10.jpg',       type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/gallery-11.jpg',       type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
-    { src: '/images/drilling-baku.jpg',    type: 'image', caption: az ? 'Qazma işləri — Bakı' : 'Drilling works — Baku' },
-    { src: '/images/slide-icare.jpg',      type: 'image', caption: az ? 'Kran icarəsi' : 'Crane rental' },
-    { src: '/images/slide-svay.jpg',       type: 'image', caption: az ? 'Svay işləri' : 'Piling works' },
-    { src: '/videos/gallery-vid-1.mp4',    type: 'video', caption: az ? 'Layihə videosu' : 'Project video' },
-    { src: '/videos/gallery-vid-2.mp4',    type: 'video', caption: az ? 'Layihə videosu' : 'Project video' },
-    { src: '/videos/gallery-vid-3.mp4',    type: 'video', caption: az ? 'Layihə videosu' : 'Project video' },
-    { src: '/videos/gallery-vid-4.mp4',    type: 'video', caption: az ? 'Layihə videosu' : 'Project video' },
+    { src: '/images/np1.jpg',   type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/np2.jpg',   type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/np3.jpg',   type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/np4.jpg',   type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/np5.jpg',   type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/np6.jpg',   type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/np7.jpg',   type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/np8.jpg',   type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/np9.jpg',   type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/images/np10.jpg',  type: 'image', caption: az ? 'Layihə fotoları' : 'Project photos' },
+    { src: '/videos/gallery-vid-1.mp4', type: 'video', caption: az ? 'Layihə videosu' : 'Project video' },
+    { src: '/videos/gallery-vid-2.mp4', type: 'video', caption: az ? 'Layihə videosu' : 'Project video' },
+    { src: '/videos/gallery-vid-3.mp4', type: 'video', caption: az ? 'Layihə videosu' : 'Project video' },
+    { src: '/videos/gallery-vid-4.mp4', type: 'video', caption: az ? 'Layihə videosu' : 'Project video' },
   ]
   useEffect(() => {
     const t = setInterval(() => setSlideIndex((i) => (i + 1) % heroSlides.length), 5000)
@@ -186,7 +182,7 @@ export default function HomePage() {
       img: '',
     },
     {
-      name: 'TECHNIWELL',
+      name: 'TECNIWELL',
       origin: az ? 'İtaliya' : 'Italy',
       desc: az
         ? '30 ildən çox təcrübəyə malik italyan istehsalçısı. Jet-qazıma, ineksiya, qarışdırma və nasos sistemlərinin istehsalında dünya lideri.'
@@ -346,13 +342,13 @@ export default function HomePage() {
               <div className="space-y-4 text-slate-600 leading-relaxed text-base">
                 <p>
                   {az
-                    ? 'AZSAFE MMC fondament mühəndisliyi, svay texnikası və zəmin berkitmə sahələrində avadanlıq satışı, icarəsi və layihə təhvili üzrə ixtisaslaşmış şirkətdir. Xırdalan şəhərindəki mərkəzimizlə iki əsas istiqamətdə fəaliyyət göstəririk: AZSAFE brendi altında qazma və təməl avadanlıqları, AZSAFE Kran brendi altında isə kran icarəsi xidmətləri.'
+                    ? 'AZSAFE MMC fondament mühəndisliyi, svay texnikası və zəmin bərkitmə sahələrində avadanlıq satışı, icarəsi və layihə təhvili üzrə ixtisaslaşmış şirkətdir. Xırdalan şəhərindəki mərkəzimizlə iki əsas istiqamətdə fəaliyyət göstəririk: AZSAFE brendi altında qazma və təməl avadanlıqları, AZSAFE Kran brendi altında isə kran icarəsi xidmətləri.'
                     : 'AZSAFE MMC is a specialist company in the supply, rental and full project delivery of foundation engineering, piling and ground improvement equipment. Based in Khirdalan, we operate under two brands: AZSAFE for drilling and foundation machinery, and AZSAFE Kran for crane rental services.'}
                 </p>
                 <p>
                   {az
-                    ? 'BAUER, BETEK, COMACCHIO və TECHNIWELL kimi dünya liderlerinin Azərbaycandakı səlahiyyətli distribütoru kimi, avadanlıq satışından tutmuş satış sonrası texniki dəstəyə, ehtiyat hissə təchizatından layihənin tam idarə edilməsinə qədər bütün prosesləri əhatə edən həll yolları təqdim edirik.'
-                    : 'As the authorized distributor of BAUER, BETEK, COMACCHIO and TECHNIWELL in Azerbaijan, we provide end-to-end solutions covering equipment sales, after-sales technical support, spare parts supply and complete project management.'}
+                    ? 'BAUER, BETEK, COMACCHIO və TECNIWELL kimi dünya liderlerinin Azərbaycandakı səlahiyyətli distribütoru kimi, avadanlıq satışından tutmuş satış sonrası texniki dəstəyə, ehtiyat hissə təchizatından layihənin tam idarə edilməsinə qədər bütün prosesləri əhatə edən həll yolları təqdim edirik.'
+                    : 'As the authorized distributor of BAUER, BETEK, COMACCHIO and TECNIWELL in Azerbaijan, we provide end-to-end solutions covering equipment sales, after-sales technical support, spare parts supply and complete project management.'}
                 </p>
               </div>
 
