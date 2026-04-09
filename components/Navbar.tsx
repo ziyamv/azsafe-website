@@ -59,13 +59,13 @@ export default function Navbar() {
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-0.5">
+          <nav className="hidden lg:flex items-center gap-0">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setIsOpen(false)}
-                className={`px-4 py-2 text-sm font-600 rounded-md transition-colors relative ${
+                className={`px-3 py-2 text-xs font-600 rounded-md transition-colors relative whitespace-nowrap ${
                   activeSection === sectionId(l.href)
                     ? 'text-blue-brand font-bold'
                     : 'text-navy-900 hover:text-blue-brand font-medium'
@@ -73,7 +73,7 @@ export default function Navbar() {
               >
                 {l.label}
                 {activeSection === sectionId(l.href) && (
-                  <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-blue-brand rounded-full" />
+                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-blue-brand rounded-full" />
                 )}
               </a>
             ))}
