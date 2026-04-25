@@ -60,8 +60,8 @@ export default function HomePage() {
   const heroSlides = [
     {
       img: '/images/hero-bg.jpg',
-      titleAz: <><span>Svay texnikasında</span><span className="block mt-4 text-blue-light">Etibarlı Həllər</span></>,
-      titleEn: <><span>Reliable Solutions</span><span className="block mt-4 text-blue-light">in Heavy Equipment</span></>,
+      titleAz: <><span>Fundament və Svay Texnikası</span><span className="block mt-4">Üzrə İxtisaslaşmış Tərəfdaş</span></>,
+      titleEn: <><span>Your Specialist Partner in</span><span className="block mt-4">Foundation & Piling Equipment</span></>,
       subAz: 'Qazma avadanlıqları satışı, satış sonrası xidmət, peşəkar kran və svay icarəsi — AZSAFE MMC.',
       subEn: 'Drilling equipment sales, after-sales service, professional crane and pile rental — AZSAFE MMC.',
     },
@@ -108,20 +108,6 @@ export default function HomePage() {
     return () => clearInterval(t)
   }, [])
 
-  /* ─── contact form state ─── */
-  const [form, setForm] = useState({ name: '', company: '', phone: '', email: '', message: '' })
-  const [sent, setSent] = useState(false)
-  const [errs, setErrs] = useState<Record<string, boolean>>({})
-
-  const submitForm = (e: React.FormEvent) => {
-    e.preventDefault()
-    const newErrs: Record<string, boolean> = {}
-    if (!form.name)    newErrs.name = true
-    if (!form.phone)   newErrs.phone = true
-    if (!form.message) newErrs.message = true
-    if (Object.keys(newErrs).length) { setErrs(newErrs); return }
-    setSent(true)
-  }
 
   /* ─── brand data ─── */
   const brands = [
@@ -252,14 +238,6 @@ export default function HomePage() {
 
         <div className="container-xl relative z-10 pt-24 pb-16">
           <div className="max-w-[640px]">
-            {/* Eyebrow */}
-            <div className="flex items-center gap-2 mb-4 sm:mb-6">
-              <span className="w-8 h-0.5 bg-blue-brand" />
-              <span className="text-blue-light font-semibold text-xs sm:text-sm tracking-wider uppercase">
-                {az ? 'Azərbaycanda Etibarlı Tərəfdaş' : 'Trusted Partner in Azerbaijan'}
-              </span>
-            </div>
-
             <h1 className="text-3xl sm:text-4xl lg:text-[3.25rem] font-black text-white leading-tight mb-4 sm:mb-6">
               {az ? heroSlides[slideIndex].titleAz : heroSlides[slideIndex].titleEn}
             </h1>
@@ -361,7 +339,7 @@ export default function HomePage() {
               />
               {/* Floating badge */}
               <div className="absolute -bottom-5 -left-5 bg-navy-900 text-white rounded-xl px-6 py-4 shadow-xl">
-                <div className="text-2xl font-black">19+</div>
+                <div className="text-2xl font-black">20+</div>
                 <div className="text-xs text-white/60 font-medium mt-0.5">
                   {az ? 'İl Təcrübə' : 'Years Experience'}
                 </div>
@@ -654,26 +632,6 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════
-          7. CLIENT LOGOS
-      ════════════════════════════════════════════════════════ */}
-      <section className="py-16 bg-white border-y border-slate-100">
-        <div className="container-xl">
-          <p className="text-center text-slate-400 text-xs font-bold uppercase tracking-widest mb-10">
-            {az ? 'Müştərilərimiz' : 'Our Clients'}
-          </p>
-          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="h-16 bg-slate-50 border border-slate-100 rounded-xl flex items-center justify-center">
-                <span className="text-[10px] font-semibold text-slate-300 uppercase tracking-wider">
-                  {az ? 'Müştəri Loqosu' : 'Client Logo'}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════
           7. CONTACT
       ════════════════════════════════════════════════════════ */}
       <section id="contact" className="section-pad bg-slate-50">
@@ -688,99 +646,9 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-            {/* Form */}
-            <div className="lg:col-span-3 bg-white rounded-2xl shadow-sm border border-slate-100 p-8 sm:p-10">
-              {sent ? (
-                <div className="text-center py-12">
-                  <div className="w-16 h-16 bg-green-50 border border-green-200 rounded-full flex items-center justify-center mx-auto mb-5">
-                    <CheckCircle size={32} className="text-green-500" />
-                  </div>
-                  <h3 className="text-2xl font-black text-navy-900 mb-2">
-                    {az ? 'Təşəkkürlər!' : 'Thank you!'}
-                  </h3>
-                  <p className="text-slate-500 mb-6">
-                    {az ? 'Mesajınız alındı. Tezliklə sizinlə əlaqə saxlayacağıq.' : 'Your message was received. We will contact you shortly.'}
-                  </p>
-                  <button onClick={() => { setSent(false); setForm({ name: '', company: '', phone: '', email: '', message: '' }) }} className="btn-outline-navy text-sm py-2 px-5">
-                    {az ? 'Yeni Mesaj' : 'New Message'}
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={submitForm} className="space-y-5">
-                  <h3 className="text-xl font-black text-navy-900 mb-6">
-                    {az ? 'Mesaj Göndər' : 'Send a Message'}
-                  </h3>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-sm font-semibold text-navy-900 mb-1.5">
-                        {az ? 'Ad Soyad' : 'Full Name'} <span className="text-blue-brand">*</span>
-                      </label>
-                      <input
-                        type="text" value={form.name}
-                        onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        placeholder={az ? 'Ad Soyad' : 'Full Name'}
-                        className={`w-full border rounded-lg px-4 py-3 text-sm text-navy-900 placeholder-slate-400 outline-none transition-colors focus:border-blue-brand ${errs.name ? 'border-red-400 bg-red-50' : 'border-slate-200 bg-white'}`}
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-navy-900 mb-1.5">
-                        {az ? 'Şirkət' : 'Company'}
-                      </label>
-                      <input
-                        type="text" value={form.company}
-                        onChange={(e) => setForm({ ...form, company: e.target.value })}
-                        placeholder={az ? 'Şirkət adı' : 'Company name'}
-                        className="w-full border border-slate-200 rounded-lg px-4 py-3 text-sm text-navy-900 placeholder-slate-400 outline-none focus:border-blue-brand transition-colors"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-navy-900 mb-1.5">
-                        {az ? 'Telefon' : 'Phone'} <span className="text-blue-brand">*</span>
-                      </label>
-                      <input
-                        type="tel" value={form.phone}
-                        onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                        placeholder="+994 xx xxx xx xx"
-                        className={`w-full border rounded-lg px-4 py-3 text-sm text-navy-900 placeholder-slate-400 outline-none transition-colors focus:border-blue-brand ${errs.phone ? 'border-red-400 bg-red-50' : 'border-slate-200 bg-white'}`}
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-navy-900 mb-1.5">
-                        {az ? 'E-poçt' : 'Email'}
-                      </label>
-                      <input
-                        type="email" value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        placeholder="email@company.com"
-                        className="w-full border border-slate-200 rounded-lg px-4 py-3 text-sm text-navy-900 placeholder-slate-400 outline-none focus:border-blue-brand transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-navy-900 mb-1.5">
-                      {az ? 'Mesaj' : 'Message'} <span className="text-blue-brand">*</span>
-                    </label>
-                    <textarea
-                      rows={5} value={form.message}
-                      onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      placeholder={az ? 'Mesajınızı buraya yazın...' : 'Write your message here...'}
-                      className={`w-full border rounded-lg px-4 py-3 text-sm text-navy-900 placeholder-slate-400 outline-none transition-colors focus:border-blue-brand resize-none ${errs.message ? 'border-red-400 bg-red-50' : 'border-slate-200 bg-white'}`}
-                    />
-                  </div>
-
-                  <button type="submit" className="btn-primary w-full justify-center py-3.5">
-                    {az ? 'Göndər' : 'Send'}
-                    <ArrowRight size={18} />
-                  </button>
-                </form>
-              )}
-            </div>
-
-            {/* Info + Map */}
-            <div className="lg:col-span-2 space-y-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Info cards */}
+            <div className="space-y-4">
               {/* Contact info cards */}
               {[
                 { icon: MapPin,  label: az ? 'Ünvan' : 'Address',       value: 'H.Aliyev 1/8, Xırdalan AZ0100',   href: 'https://maps.google.com/?q=Khirdalan+Azerbaijan' },
